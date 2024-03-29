@@ -49,47 +49,47 @@ export const metadata: Metadata = {
 export default function Speaking() {
   return (
     <SimpleLayout
-      title="I’ve spoken at events all around the world and been interviewed for many podcasts."
-      intro="One of my favorite ways to share my ideas is live on stage, where there’s so much more communication bandwidth than there is in writing, and I love podcast interviews because they give me the opportunity to answer questions instead of just present my opinions."
+      title="I’ve spoken at events all around the world."
+      intro="Speaking at events has really ignited my passion to share my work and entice peoples creativity."
     >
       <div className="space-y-20">
         <SpeakingSection title="Conferences">
           <Appearance
-            href="#"
-            title="In space, no one can watch you stream — until now"
-            description="A technical deep-dive into HelioStream, the real-time streaming library I wrote for transmitting live video back to Earth."
-            event="SysConf 2021"
-            cta="Watch video"
+            href="https://www.devconf.co.za/"
+            title="Upcoming - Co-creating API Banking"
+            description="A technical deep-dive into the Investec API, this technical walkthrough will demonstrate real-world applications and community-driven projects."
+            event="ZA DevConf 2024"
+            cta="Event Page"
           />
           <Appearance
-            href="#"
-            title="Lessons learned from our first product recall"
-            description="They say that if you’re not embarassed by your first version, you’re doing it wrong. Well when you’re selling DIY space shuttle kits it turns out it’s a bit more complicated."
-            event="Business of Startups 2020"
+            href="https://youtu.be/tmZvwh9syZY?si=9_hg0Bh5ugSe6ZC-"
+            title="Shedding Some Light-ning on Lightning Integrations"
+            description="I gave a technical breakdown on how my team experienced integrating with the lightning network, as one of the first projects to do it successfully."
+            event="Magical Crypto Friends 2019"
             cta="Watch video"
           />
         </SpeakingSection>
-        <SpeakingSection title="Podcasts">
+        <SpeakingSection title="Meetup Talks">
           <Appearance
             href="#"
-            title="Using design as a competitive advantage"
-            description="How we used world-class visual design to attract a great team, win over customers, and get more press for Planetaria."
-            event="Encoding Design, July 2022"
-            cta="Listen to podcast"
+            title="Investec Blockly - A new way to code"
+            description="Demonstrated how you can use Blockly to create your own programmable card code for your Investec card using code blocks."
+            event="Programmable Banking Meetup, March 2024"
+            cta="Watch video - pending"
           />
           <Appearance
-            href="#"
-            title="Bootstrapping an aerospace company to $17M ARR"
-            description="The story of how we built one of the most promising space startups in the world without taking any capital from investors."
-            event="The Escape Velocity Show, March 2022"
-            cta="Listen to podcast"
+            href="https://www.meetup.com/johannesburg-ms-dev-user-group/events/299629750/"
+            title="Co-creating API Banking"
+            description="Demonstrated how Investec bank enables developers to access and interact with programmable cards and bank accounts."
+            event="Johannesburg MS Developer User Group, March 2024"
+            cta="Meetup Page"
           />
           <Appearance
-            href="#"
-            title="Programming your company operating system"
-            description="On the importance of creating systems and processes for running your business so that everyone on the team knows how to make the right decision no matter the situation."
-            event="How They Work Radio, September 2021"
-            cta="Listen to podcast"
+            href="https://www.wits.ac.za/wsoa/"
+            title="NFTs - The future of digital art"
+            description="Guest Seminar at University of the Witwatersrand. I showed different ways that NFTs are being used in the art world and how they can be used to create new revenue streams for artists."
+            event="Wits School of the Arts Creative Research Postgraduate Seminar and Workshop Programme, September 2022"
+            cta="Wits School of the Arts"
           />
         </SpeakingSection>
       </div>
