@@ -43,78 +43,55 @@ export default function Uses() {
   return (
     <SimpleLayout
       title="Software I use, gadgets I love, and other things I recommend."
-      intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
+      intro="I dont often get asked about the tools I use but I thought that might change, so why not put together a list of the things I use daily. I will try to keep this up to date."
     >
       <div className="space-y-20">
         <ToolsSection title="Workstation">
-          <Tool title="16” MacBook Pro, M1 Max, 64GB RAM (2021)">
-            I was using an Intel-based 16” MacBook Pro prior to this and the
-            difference is night and day. I’ve never heard the fans turn on a
-            single time, even under the incredibly heavy loads I put it through
-            with our various launch simulations.
+        <Tool title="Mac mini, M1, 8GB RAM (2020)">
+            I have been using this as my main workstation for the last year. It’s suprisingly powerful and I have been able to do all my work on it. Its been better than my Intel-based Macbook Pro. Originally I had ordered this just to test out apps I was building on the M1 chip and sat in the cupboard for a while.
           </Tool>
-          <Tool title="Apple Pro Display XDR (Standard Glass)">
-            The only display on the market if you want something HiDPI and
-            bigger than 27”. When you’re working at planetary scale, every pixel
-            you can get counts.
+        <Tool title="16” MacBook Pro, Intel, 16GB RAM (2021)">
+            I ordered this machine just as the M1 MacBook Pros were announced. I needed a machine that could run Windows and Linux VMs for work which took the M1 MacBooks off the list. I eventually stopped using it as my daily driver when it permanently sounded like a jet engine was taking off while sitting on my desk.
           </Tool>
-          <Tool title="IBM Model M SSK Industrial Keyboard">
-            They don’t make keyboards the way they used to. I buy these any time
-            I see them go up for sale and keep them in storage in case I need
-            parts or need to retire my main.
+          <Tool title="34” LG Ultra Wide Screen">
+            It has been a great monitor for me. I picked it up at a steal when one of the offices transitioned to remote work. It just works.
           </Tool>
-          <Tool title="Apple Magic Trackpad">
-            Something about all the gestures makes me feel like a wizard with
-            special powers. I really like feeling like a wizard with special
-            powers.
+          <Tool title="North Bayou Monitor Desk Mount">
+            This saved my neck and back. I couldn’t find any monitor risers that were tall enough or adjustable enough to get my monitor to the right height so I went with a desk mount instead. Its also been great for online meetings as I can drop the screen down to bring my webcam to eye level. 
           </Tool>
-          <Tool title="Herman Miller Aeron Chair">
-            If I’m going to slouch in the worst ergonomic position imaginable
-            all day, I might as well do it in an expensive chair.
+          <Tool title="Kinesis Advantage360 Professional Keyboard">
+            What a wild ride this keyboard has been, I’ve had it for close on a year. I hated it at first and had to force myself to use it. I found out very quickly that I couldn’t touch type at all before this keyboard. I’ve since changed all that and im a much faster typer now. I love the thumb keys and the split design. I have also found that I have less wrist pain since using it. I have a MX Keys keyboard for times when the Tactile Brown switches are too loud.
+          </Tool>
+          <Tool title="MX Master 3 Mouse">
+            Became a reliable daily driver for me. I orginally got it with the MX Keys keyboard so that I could switch between my Mac and Windows machine easily. I love the thumb scroll wheel and the ability to switch between devices easily.
+          </Tool>
+          <Tool title="Herman Miller Embody Chair">
+            This chair ruined me. I can’t sit in any other chair now. I’ve had it for about 7 years now and it’s still as comfortable as the day I got it. They don’t even sell them in South Africa anymore so I bought 4 of them when our offices closed down.
+          </Tool>
+          <Tool title="Apple AirPods Max">
+            Way overpriced but I love them. The noise cancelling is better than I have experienced on any other headphones. I love the sound quality. The case is the worst thing about them. All they needed to do was add a power switch and I would be happy.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Development tools">
-          <Tool title="Sublime Text 4">
-            I don’t care if it’s missing all of the fancy IDE features everyone
-            else relies on, Sublime Text is still the best text editor ever
-            made.
+          <Tool title="VS Code">
+            VS Code has become my go to editor. I’ve seen as my Intel Mac and my limited M1 Mac mini have aged, VS Code has been one of the few IDEs that have been better with resources.
           </Tool>
           <Tool title="iTerm2">
-            I’m honestly not even sure what features I get with this that aren’t
-            just part of the macOS Terminal but it’s what I use.
+            It works. I have no idea what the difference is between it and the default terminal but it works.
           </Tool>
-          <Tool title="TablePlus">
-            Great software for working with databases. Has saved me from
-            building about a thousand admin interfaces for my various projects
-            over the years.
-          </Tool>
-        </ToolsSection>
-        <ToolsSection title="Design">
-          <Tool title="Figma">
-            We started using Figma as just a design tool but now it’s become our
-            virtual whiteboard for the entire company. Never would have expected
-            the collaboration features to be the real hook.
+          <Tool title="GitHub Desktop">
+            I know so many people turn their noses up at GUIs for git but I love it. I can see what I’m doing and I can see what I’m about to do. So often people commit files they didn’t mean to because they either commit all or blindly commit files they are testing in. It’s far less complex than GitKraken and I don’t need to pay for it. I use the Git CLI when I need to do more complex things.
           </Tool>
         </ToolsSection>
         <ToolsSection title="Productivity">
-          <Tool title="Alfred">
-            It’s not the newest kid on the block but it’s still the fastest. The
-            Sublime Text of the application launcher world.
+          <Tool title="Clean Shot X">
+            Amazing tool for taking screenshots and recording videos. I use it all the time for documentation and bug reports. You’re able to do a lot of editing in the app before saving the image or video. The scrolling screenshot feature is amazing. The background removal feature is also great.
           </Tool>
-          <Tool title="Reflect">
-            Using a daily notes system instead of trying to keep things
-            organized by topics has been super powerful for me. And with
-            Reflect, it’s still easy for me to keep all of that stuff
-            discoverable by topic even though all of my writing happens in the
-            daily note.
+          <Tool title="Apple Notes">
+            I use this for almost all my note taking. I love the fact that they are natively available on all my devices. I use Notion for more structured notes but for quick notes and lists I use Apple Notes.
           </Tool>
-          <Tool title="SavvyCal">
-            Great tool for scheduling meetings while protecting my calendar and
-            making sure I still have lots of time for deep work during the week.
-          </Tool>
-          <Tool title="Focus">
-            Simple tool for blocking distracting websites when I need to just do
-            the work and get some momentum going.
+          <Tool title="Spotify">
+            Can’t do without my music. I usually listen to random mixes and playlists. I find they are better at giving me music I like more than Apple Music does.
           </Tool>
         </ToolsSection>
       </div>
