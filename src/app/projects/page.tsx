@@ -4,46 +4,37 @@ import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Investec Programmable Card Emulator',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+      'A emulator for Investec banks programmable card code system. it uses nodes VM feature to run code in a sandboxed environment.',
+    link: { href: 'https://github.com/devinpearson/programmable-card-code-emulator', label: 'github.com' },
     logo: logoPlanetaria,
   },
   {
-    name: 'Animaginary',
+    name: 'Programmed a Boston Dynamics Spot',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+      'I was asked to assist the University of Johannesburg with their Boston Dynamics robot. I helped program its first steps to demo to media and the university chancellor.',
+    link: { href: 'https://x.com/devin_pearson/status/1435562945438752770?s=20', label: 'x.com' },
+    logo: logoPlanetaria,
+  },
+  {
+    name: 'MyMonero Monero Client',
+    description:
+      'Recreated a very complex library into a new JS package that used a WASM with decent error handling.',
+    link: { href: 'https://github.com/mymonero/mymonero-utils/tree/master/packages/mymonero-monero-client', label: 'github.com' },
     logo: logoAnimaginary,
   },
   {
-    name: 'HelioStream',
+    name: 'EskomSePush Electronic Badge',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
+      'Built a loadshedding status badge for a community challenge that worked when the power was off.',
+    link: { href: 'https://x.com/devin_pearson/status/1585967183448125440?s=20', label: 'x.com' },
     logo: logoHelioStream,
-  },
-  {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
   },
 ]
 
@@ -66,8 +57,8 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="Projects I’m proud of."
+      intro="I love working on small projects that interest me, many havent made it here but I’m sure many more will in future."
     >
       <ul
         role="list"
