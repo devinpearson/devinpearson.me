@@ -1,10 +1,12 @@
-# Spotlight
+# My Tailwind Application Site Repo
 
-Spotlight is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+It is using the Spotlight template from Tailwind UI. You can find it at [https://tailwindui.com](https://tailwindui.com).
+
+The site has been created to apply for a position at Tailwind Labs for the position of Staff Software Engineer.
 
 ## Getting started
 
-To get started with this template, first install the npm dependencies:
+If you would like to run it locally on your machine, you can follow these steps:
 
 ```bash
 npm install
@@ -13,7 +15,7 @@ npm install
 Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
 
 ```
-NEXT_PUBLIC_SITE_URL=https://example.com
+NEXT_PUBLIC_SITE_URL=https://mytailwindapplication.com
 ```
 
 Next, run the development server:
@@ -30,7 +32,7 @@ You can start editing this template by modifying the files in the `/src` folder.
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+The template used to create this site is licensed under the [Tailwind UI license](https://tailwindui.com/license).
 
 ## Learn more
 
