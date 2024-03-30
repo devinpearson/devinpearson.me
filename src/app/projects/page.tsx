@@ -6,6 +6,10 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import iconAcademicCap from '@/images/icons/academic-cap.svg'
+import iconBoltSlash from '@/images/icons/bolt-slash.svg'
+import iconWallet from '@/images/icons/wallet.svg'
+import iconCreditCard from '@/images/icons/credit-card.svg'
 
 const projects = [
   {
@@ -13,28 +17,28 @@ const projects = [
     description:
       'A emulator for Investec banks programmable card code system. it uses nodes VM feature to run code in a sandboxed environment.',
     link: { href: 'https://github.com/devinpearson/programmable-card-code-emulator', label: 'github.com' },
-    logo: logoPlanetaria,
+    logo: iconCreditCard,
   },
   {
     name: 'Programmed a Boston Dynamics Spot',
     description:
       'I was asked to assist the University of Johannesburg with their Boston Dynamics robot. I helped program its first steps to demo to media and the university chancellor.',
     link: { href: 'https://x.com/devin_pearson/status/1435562945438752770?s=20', label: 'x.com' },
-    logo: logoPlanetaria,
+    logo: iconAcademicCap,
   },
   {
     name: 'MyMonero Monero Client',
     description:
       'Recreated a very complex library into a new JS package that used a WASM with decent error handling.',
     link: { href: 'https://github.com/mymonero/mymonero-utils/tree/master/packages/mymonero-monero-client', label: 'github.com' },
-    logo: logoAnimaginary,
+    logo: iconWallet,
   },
   {
     name: 'EskomSePush Electronic Badge',
     description:
       'Built a loadshedding status badge for a community challenge that worked when the power was off.',
     link: { href: 'https://x.com/devin_pearson/status/1585967183448125440?s=20', label: 'x.com' },
-    logo: logoHelioStream,
+    logo: iconBoltSlash,
   },
 ]
 
