@@ -1,0 +1,83 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import blunoConsole1 from './bluno_blog_serial_1.png'
+import blunoConsole2 from './bluno_blog_serial_2.png'
+import blunoConsole3 from './bluno_blog_serial_3.png'
+import blunoConsole4 from './bluno_blog_serial_4.png'
+
+export const article = {
+  author: 'Devin Pearson',
+  date: '2020-06-05',
+  title: 'Connecting Bluno devices with ease',
+  description:
+    'A step by step guide to connecting your Bluno devices with ease.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+I recently picked up the Romeo BLE and Romeo BLE mini with the bluno link dongle from DFRobot and found their documentation quite confusing at first. They bombard you with any info on different versions and different ways of connecting to your bluno device. 
+
+I thought I would lay out the steps to get your first connection up and running without hassle.
+
+When using the Bluno link, there are two Bluetooth devices you need to make sure are set right. It's the link device you plug into your pc and the Romeo board that will go into your robot or electronics project.
+
+To kick this off, you will need to open the Arduino IDE and connect your Romeo board via USB to the pc. Leave the Bluno link dongle unplugged during this step. Open the Serial monitor and set the line endings to "No line ending" and send "+++".
+
+<Image src={blunoConsole1} alt="" />
+It will return "Enter AT Mode" you are now talking directly to the Bluetooth module on the Romeo board.
+
+While in this mode, you need to send line endings by setting them to "Both NL & CR".
+
+Now we are ready to send commands.
+
+send the following:
+> AT+SETTING=DEFAULT
+
+<Image src={blunoConsole2} alt="" />
+It should return with OK. This command sets the Romeo board to PERIPHERAL mode, which means it's expecting to link and receive commands from another device, and that device will be your Bluno link.
+
+To save the settings and leave the AT mode send: 
+> AT+EXIT
+
+You can now unplug your Romeo board.
+
+<Image src={blunoConsole3} alt="" />
+Once you have unplugged your Romeo board, plug in the Bluno link dongle. Select the correct serial port. It shows up as an Arduino Uno in the serial port options.
+
+Doing the same steps as before, you will set up the bluno dongle as a CENTRAL device.
+
+set line endings to "No line endings" and send +++
+
+<Image src={blunoConsole4} alt="" />
+It will respond with: 
+> Enter AT Mode
+
+Set the line endings to "Both NL & CR".
+
+Set it to central by sending the following command:
+> AT+SETTING=DEFCENTRAL
+
+<Image src={blunoConsole4} alt="" />
+It will respond with OK.
+
+You can now exit by sending:
+> AT+EXIT
+
+<Image src={blunoConsole3} alt="" />
+Unplug your Bluno link few seconds and then plug it back in.
+
+You can now plug your Romeo board into an external power source. This power source can be a power bank or via the power jack, and leaving it plugged into your computer will prevent serial communication over Bluetooth.
+
+You will see the link light on the Romeo board light up, and you now have serial communication over Bluetooth.
+
+To test. Load up an example blink sketch and click upload, like you would if connected via USB.
+
+Couple of things to note. If the serial window is open, the link won't establish.
+
+The link takes a few seconds to establish and will show a solid link light, blue on the Romeo mini and Green on the Romeo BLE.
+
+If you have multiple peripheral devices, you can connect one at a time to the BLE link dongle. But you can easily interchange them. The link will stay connected to the first unless you turn it off or go out of range. the second device would then establish a link

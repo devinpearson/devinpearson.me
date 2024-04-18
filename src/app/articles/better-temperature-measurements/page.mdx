@@ -1,0 +1,28 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Devin Pearson',
+  date: '2020-06-05',
+  title: 'Better Temperature Measurements',
+  description:
+    'The new benchmark in temperature and humidity sensing, it is capable of being used in industrial applications and has a low price tag.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+The new benchmark in temperature and humidity sensing, it's capable of being used in industrial applications and has a low price tag. There is no question that this should small sensor should become the defacto choice in any new designs that read temperature and humidity. 
+
+It measures temperature within a tolerance of approx 0.3 degrees centigrade and relative humidity with an error margin of around 2%. These margins are excellent performance at a low price.
+
+Currently, we are only seeing breakout boards being offered from Seeedstudio on their grove platform and Sparkfun offering a SparkX breakout with Adafruit mentioning they are busy baking a STEMMA QT board. Dfrobot hasn't shown any signs of it coming out as part of the Gravity set. 
+
+Interfacing into AHT20 is done via the I2C interface, making it super compatible with almost all microcontrollers and proprietary ecosystems out there.
+
+One glaring issue is its fixed address, meaning you can only have one of these per I2C line else you need to use an I2C Multiplexer such as the TCA9548A. These chips aren't too expensive, but you're adding additional components when populating boards.
+
+Link for SparkFun's [library](https://github.com/sparkfun/SparkFun_Qwiic_Humidity_AHT20_Arduino_Library)

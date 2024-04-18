@@ -1,0 +1,91 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Devin Pearson',
+  date: '2022-06-06',
+  title: 'Troubleshooting your internet line with your ISP',
+  description:
+    'A run through of the tools Iused to test my line when troubleshooting issues.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# Troubleshooting your internet line with your ISP
+
+I'm sure im not the only one that doesnt get the a solid and reliable internet service from their service provider. As a Web Application Developer these intermittent issues cause a lot of frustration and downtime. My ISP in most cases asks for a large amount of information during a lengthy email exchange and Ive compiled it in to a script to speed up the exchange.
+
+These commands are run from the terminal on macOS
+
+For starters im asked to provide a time when these issues are taking place. I run the following:
+
+```bash
+#displays the date
+date
+#Fri Jun  5 13:30:31 SAST 2020
+````
+
+Next they want to confirm my external IP. Im using a dig command for this found it [here](https://www.cyberciti.biz/faq/how-to-find-my-public-ip-address-from-command-line-on-a-linux/).
+
+```bash
+dev$ dig +short myip.opendns.com @resolver1.opendns.com
+````
+Next  they ask for a speedtest to be done. Im using the CLI speedtest tool from OOKLA found [here](https://www.speedtest.net/apps/cli).
+My ISP insists that the speedtest be done against their server. you can get a list of servers close to your location using the --servers argument and then specify the server using --server-id=#
+
+```bash
+# fetches a list of servers close to your location
+dev$ speedtest --servers
+
+# does a speedtest to a specific server
+dev$ speedtest --server-id=12286
+````
+Next up is a ping test. they requested it be done to their site url.
+
+```bash
+dev$ ping www.myisp.com -c 10
+````
+
+Then a ping test to my local gateway.
+
+```bash
+dev$ ping 192.168.0.1 -c 10
+````
+And finally a traceroute to their website as well.
+```bash
+dev$ traceroute www.myisp.com
+````
+
+My full bash script is below with the commands I've mentioned so far in one.
+
+```bash
+#!/bin/bash
+echo "###################### TEST DETAILS ###########################"
+echo "Time: $(date)"
+echo "External IP: $(dig +short myip.opendns.com @resolver1.opendns.com)"
+echo "######################## SPEEDTEST ############################"
+speedtest --server-id=12286
+echo "###############################################################"
+echo ""
+echo "#################### PING AFRIHOST.COM ########################"
+ping www.myisp.com -c 10
+echo "###############################################################"
+echo ""
+echo "###################### PING GATEWAY ###########################"
+ping 192.168.0.1 -c 10
+echo "###############################################################"
+echo ""
+echo "############### RUN TRACEROUTE AFRIHOST.COM ###################"
+traceroute www.myisp.com
+echo "###############################################################"
+````
+
+I run this and pipe the output in to a txt file that I attach to the email I send my ISP when opening a ticket.
+
+```bash
+dev$ ./linetest.sh >> linetest.txt
+````
