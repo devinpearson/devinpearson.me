@@ -2,7 +2,10 @@ import assert from 'assert'
 import * as cheerio from 'cheerio'
 import { Feed } from 'feed'
 
-export async function GET(req: Request) {
+// Rendered per request: it fetches the article pages from this server.
+export const dynamic = 'force-dynamic'
+
+export async function GET() {
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!siteUrl) {
@@ -35,7 +38,9 @@ export async function GET(req: Request) {
     .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
 
   for (let id of articleIds) {
-    let url = String(new URL(`/articles/${id}`, req.url))
+    // Render the article through this server directly: behind nginx, req.url carries the public
+    // host and https with the container's port, which isn't reachable.
+    let url = `http://127.0.0.1:${process.env.PORT ?? 3000}/articles/${id}`
     let html = await (await fetch(url)).text()
     let $ = cheerio.load(html)
 
