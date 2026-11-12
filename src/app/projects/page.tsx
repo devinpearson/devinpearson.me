@@ -10,6 +10,20 @@ import iconCreditCard from '@/images/icons/credit-card.svg'
 
 const projects = [
   {
+    name: 'Toastmasters Performance Dashboards',
+    description:
+      'Interactive dashboards for club, area, division and district performance: membership growth, club health, payments and Distinguished progress, with history, so leaders can spot trends and risks earlier.',
+    link: { href: 'https://reports.devinpearson.me', label: 'reports.devinpearson.me' },
+    logo: iconAcademicCap,
+  },
+  {
+    name: 'Investec Programmable Banking CLI',
+    description:
+      'A command-line app for managing Investec programmable card code from your editor, with AI-generated card code and a local simulator to test it before deploying.',
+    link: { href: 'https://github.com/devinpearson/ipb', label: 'github.com' },
+    logo: iconCreditCard,
+  },
+  {
     name: 'Investec Programmable Card Emulator',
     description:
       'A emulator for Investec banks programmable card code system. it uses nodes VM feature to run code in a sandboxed environment.',

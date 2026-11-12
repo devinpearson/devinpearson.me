@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Devin Pearson',
     default:
-      'Devin Pearson - Software developer, tinkerer, and speaker',
+      'Devin Pearson - Platform engineer, open source developer, and speaker',
   },
   description:
-    'I’m Devin, I live in Johannesburg, South Africa, where I build a little of anything and everything.',
+    'I’m Devin, a platform engineer and engineering leader in Johannesburg, South Africa, working on API platforms, developer experience and open source tools.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,

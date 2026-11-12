@@ -68,6 +68,29 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function MicrophoneIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M8.75 6.75a3.25 3.25 0 0 1 6.5 0v4.5a3.25 3.25 0 0 1-6.5 0v-4.5Z"
+        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+      />
+      <path
+        d="M5.75 11.25a6.25 6.25 0 0 0 12.5 0M12 17.5v3.75M9 21.25h6"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
+      />
+    </svg>
+  )
+}
+
 function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
@@ -141,7 +164,7 @@ function Newsletter() {
 interface Role {
   company: string
   title: string
-  logo: ImageProps['src']
+  logo?: ImageProps['src']
   start: string | { label: string; dateTime: string }
   end: string | { label: string; dateTime: string }
 }
@@ -158,7 +181,20 @@ function Role({ role }: { role: Role }) {
   return (
     <li className="flex gap-4">
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+        {role.logo ? (
+          <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+        ) : (
+          <span
+            aria-hidden="true"
+            className="text-xs font-semibold text-zinc-500 dark:text-zinc-400"
+          >
+            {role.company
+              .split(' ')
+              .map((word) => word[0])
+              .join('')
+              .slice(0, 2)}
+          </span>
+        )}
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
@@ -183,17 +219,58 @@ function Role({ role }: { role: Role }) {
   )
 }
 
+const present = {
+  label: 'Present',
+  dateTime: new Date().getFullYear().toString(),
+}
+
+function RoleList({
+  title,
+  icon: Icon,
+  roles,
+  children,
+}: {
+  title: string
+  icon: React.ComponentType<{ className?: string }>
+  roles: Array<Role>
+  children?: React.ReactNode
+}) {
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <Icon className="h-6 w-6 flex-none" />
+        <span className="ml-3">{title}</span>
+      </h2>
+      <ol className="mt-6 space-y-4">
+        {roles.map((role, roleIndex) => (
+          <Role key={roleIndex} role={role} />
+        ))}
+      </ol>
+      {children}
+    </div>
+  )
+}
+
 function Resume() {
   let resume: Array<Role> = [
+    {
+      company: 'Investec',
+      title: 'API Platform Engineer',
+      start: '2025',
+      end: present,
+    },
+    {
+      company: 'Investec',
+      title: 'Developer Experience (contract)',
+      start: '2022',
+      end: '2025',
+    },
     {
       company: 'Slaz Labs',
       title: 'Head of Engineering',
       logo: logoSlazLabs,
       start: '2022',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      end: '2025',
     },
     {
       company: 'MyMonero',
@@ -203,11 +280,17 @@ function Resume() {
       end: '2022',
     },
     {
-      company: 'Globee',
-      title: 'Developer Lead',
+      company: 'GloBee',
+      title: 'Software Architect & Team Lead',
       logo: logoGlobee,
       start: '2017',
       end: '2020',
+    },
+    {
+      company: 'Reline Digital',
+      title: 'Managing Director',
+      start: '2017',
+      end: present,
     },
     {
       company: 'Lava Lamp Lab',
@@ -219,22 +302,38 @@ function Resume() {
   ]
 
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <Role key={roleIndex} role={role} />
-        ))}
-      </ol>
+    <RoleList title="Work" icon={BriefcaseIcon} roles={resume}>
       <Button href="/Devin-Pearson-Resume.pdf" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
-    </div>
+    </RoleList>
   )
+}
+
+function Leadership() {
+  let roles: Array<Role> = [
+    {
+      company: 'Toastmasters District 74',
+      title: 'Program Quality Director',
+      start: '2026',
+      end: present,
+    },
+    {
+      company: 'Toastmasters District 74',
+      title: 'Club Growth Director',
+      start: '2025',
+      end: '2026',
+    },
+    {
+      company: 'Toastmasters District 74',
+      title: 'Division Director',
+      start: '2024',
+      end: '2025',
+    },
+  ]
+
+  return <RoleList title="Volunteer leadership" icon={MicrophoneIcon} roles={roles} />
 }
 
 function Photos() {
@@ -272,10 +371,14 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software developer, tinkerer, and dog dad.
+            Platform engineer, open source developer, and speaker.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Devin, a software developer and tinkerer based in Johannesburg, South Africa. I build a little of anything and everything.
+            I’m Devin, a platform engineer and engineering leader based in
+            Johannesburg, South Africa. I work on API platforms and developer
+            experience at Investec, build open source tools for programmable
+            banking, and serve as Program Quality Director for Toastmasters in
+            Southern Africa.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink href="https://twitter.com/devin_pearson" aria-label="Follow on X" icon={XIcon} />
@@ -303,6 +406,7 @@ export default async function Home() {
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             {/* <Newsletter /> */}
             <Resume />
+            <Leadership />
           </div>
         </div>
       </Container>

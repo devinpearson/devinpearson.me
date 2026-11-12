@@ -56,7 +56,7 @@ export default function Speaking() {
         <SpeakingSection title="Conferences">
           <Appearance
             href="https://www.devconf.co.za/"
-            title="Upcoming - Co-creating API Banking"
+            title="Co-creating API Banking"
             description="A technical deep-dive into the Investec API, this technical walkthrough will demonstrate real-world applications and community-driven projects."
             event="ZA DevConf 2024"
             cta="Event Page"

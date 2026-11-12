@@ -46,10 +46,32 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+function AboutList({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <section>
+      <h2 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+        {title}
+      </h2>
+      <ul
+        role="list"
+        className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400"
+      >
+        {children}
+      </ul>
+    </section>
+  )
+}
+
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'I’m Devin Pearson. I live in Johannesburg, South Africa, where I build a little of anything and everything.',
+    'I’m Devin Pearson, a platform engineer and engineering leader in Johannesburg, South Africa.',
 }
 
 export default function About() {
@@ -68,21 +90,66 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-          I’m Devin Pearson. I live in Johannesburg, South Africa, where I build a little of anything and everything.
+            I’m Devin Pearson. I live in Johannesburg, South Africa, where I
+            build platforms that developers can rely on.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve always been a tinkerer. I love to build things. I loved taking electronic devices apart and putting them back together before moving on to programming. It’s was in the first grade where I wrote my first program on a computer. it was written in basic and it was a simple program that printed my name on the screen. I was hooked.
+              I’ve always been a tinkerer. I loved taking electronic devices
+              apart and putting them back together before moving on to
+              programming. I wrote my first program in the first grade, in
+              BASIC: it printed my name on the screen, and I was hooked.
             </p>
             <p>
-              Since then I don’t think a month has passed where I haven’t programmed something. I have worked on a variety of projects from web development, mobile apps to embedded systems. I have a passion for learning and I am always looking for new things to learn.
+              Since then I don’t think a month has passed where I haven’t
+              programmed something. I’ve been building software professionally
+              since 2008, starting with PHP and backend systems at Firewalk
+              Systems and domains.co.za, where I built reseller APIs and
+              coordinated the first ICANN technical integration assessment in
+              South Africa. From there I worked on APIs for mobile and frontend
+              teams at Webfluential and Lava Lamp Lab, and then moved into
+              payments and crypto as software architect and team lead at
+              GloBee and lead maintainer of MyMonero, looking after its
+              development, DevOps, releases and support.
             </p>
             <p>
-              Almost all my knowledge has been self taught. I never managed to finish my degree but that has never stopped me from learning. I have always been a firm believer that you don’t need a degree to be successful in life. You just need to be willing to learn and work hard.
+              As Head of Engineering at Slaz Labs I led a team developing new
+              offerings. Today I’m an API Platform Engineer at Investec, after
+              three years on its developer experience team: I work on the API
+              platforms, tooling and standards that make it easy for
+              developers to build on the bank, and I’ve built a lot of open
+              source tooling for Investec’s programmable banking community
+              along the way. I also run Reline Digital, building software for
+              clients.
             </p>
             <p>
-              I’m a successful Software Engineer with over 15 years of experience. I love working with small teams to build great products. I have a passion for learning and I am always looking for new things to learn and new challenges to take on.
+              Outside of code I’m a Distinguished Toastmaster. I serve as
+              Program Quality Director for District 74, which covers South
+              Africa, Botswana, Namibia and Lesotho, leading the district’s
+              education and leadership training, after a year as Club Growth
+              Director and a year as a Division Director in Johannesburg. I
+              built the district’s performance dashboards to help club and
+              district leaders see where they stand.
             </p>
+            <p>
+              Most of what I know I taught myself, and I’m still learning: I’m
+              currently completing a Postgraduate Diploma in Management
+              Practice at Henley Business School Africa.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            <AboutList title="Education">
+              <li>Postgraduate Diploma in Management Practice, Henley Business School Africa (in progress)</li>
+              <li>Advanced Diploma in Management Practice, Henley Business School Africa, 2026</li>
+              <li>Advanced Certificate in Management Practice, Henley Business School Africa, 2025</li>
+              <li>Certificate in Business Analysis, Faculty Training Institute, 2014</li>
+              <li>Diploma in Information Systems (Software Development), Computer Training Institute, 2008</li>
+            </AboutList>
+            <AboutList title="Certifications">
+              <li>Microsoft Certified: Azure AI Fundamentals, 2026</li>
+              <li>Microsoft Certified: Azure Fundamentals, 2025</li>
+              <li>Distinguished Toastmaster (DTM)</li>
+            </AboutList>
           </div>
         </div>
         <div className="lg:pl-20">
