@@ -1,0 +1,10 @@
+.git
+.github
+.claude
+.next
+node_modules
+deploy
+scripts
+*.tsbuildinfo
+.env*
+.DS_Store

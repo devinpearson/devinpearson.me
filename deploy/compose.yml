@@ -1,0 +1,28 @@
+# devinpearson.me on the server, in ~/stacks/devinpearson-me. See deploy/README.md.
+#
+# Ansible (ansible/hetzner playbooks/configure-devinpearson-me.yml) prepares the folder and nginx
+# with TLS for devinpearson.me and www. The GitHub workflow copies this file and writes IMAGE_TAG
+# and APP_PORT to the .env beside it on every deploy.
+name: devinpearson-me
+
+services:
+  web:
+    image: ghcr.io/devinpearson/devinpearson-me:${IMAGE_TAG:-latest}
+    container_name: devinpearson-me
+    restart: unless-stopped
+    labels:
+      autoheal: "true"
+    read_only: true
+    tmpfs:
+      - /tmp
+      # Next.js writes its fetch and image caches here.
+      - /app/.next/cache:uid=1000,gid=1000
+    # Loopback only: nginx on the host proxies the public site.
+    ports:
+      - "127.0.0.1:${APP_PORT:-8093}:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
