@@ -36,6 +36,12 @@ for path in /api/health / /about /articles /speaking /feed.xml; do
   [[ "$code" == 200 ]] || fail=1
 done
 
+# next/image needs sharp's native binaries; without them it serves the original unresized.
+image_path=$(curl -s "http://127.0.0.1:${port}/" | grep -o '/_next/image?url=[^" ]*' | head -1 | sed 's/&amp;/\&/g')
+image_type=$(curl -s -o /dev/null -H 'Accept: image/webp' -w '%{content_type}' "http://127.0.0.1:${port}${image_path}")
+echo "${image_type} ${image_path}"
+[[ -n "$image_path" && "$image_type" == image/webp ]] || fail=1
+
 if [[ "$fail" != 0 ]]; then
   docker logs --tail 80 "$name" >&2
   exit 1

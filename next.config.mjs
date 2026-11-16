@@ -1,6 +1,4 @@
-import rehypePrism from '@mapbox/rehype-prism'
 import nextMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,13 +6,18 @@ const nextConfig = {
   // The Docker image (Dockerfile) builds with NEXT_OUTPUT=standalone: a self-contained
   // server.js with only the node_modules it needs. Local builds keep `next start`.
   output: process.env.NEXT_OUTPUT === 'standalone' ? 'standalone' : undefined,
+  // Trace from this folder, not a stray lockfile higher up on a dev machine.
+  outputFileTracingRoot: import.meta.dirname,
+  turbopack: { root: import.meta.dirname },
 }
 
+// Plugins are named, not imported: Turbopack passes loader options across to Rust, so they
+// have to be serialisable.
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
+    remarkPlugins: ['remark-gfm'],
+    rehypePlugins: ['@mapbox/rehype-prism'],
   },
 })
 
